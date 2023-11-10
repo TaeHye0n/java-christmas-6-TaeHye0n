@@ -31,5 +31,7 @@ out/
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
-.DS_Store
+### Custom ###
+*.class
+*.jar
+*.project
