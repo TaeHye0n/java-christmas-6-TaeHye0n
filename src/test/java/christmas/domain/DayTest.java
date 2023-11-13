@@ -35,4 +35,16 @@ class DayTest {
         assertThat(dayOfWeek).isEqualTo(expectedDayOfWeek);
     }
 
+    @Test
+    void 크리스마스_남은_일_테스트() {
+        //given
+        Day day = new Day(1);
+
+        //when
+        int daysUntilChristmas = day.getDaysUntilChristmas();
+
+        //then
+        assertThat(daysUntilChristmas).isEqualTo(24);
+    }
+
 }

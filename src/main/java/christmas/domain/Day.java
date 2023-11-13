@@ -5,6 +5,7 @@ import static christmas.global.enums.ErrorMessage.DAY_INVALID_ERROR;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
 public class Day {
@@ -39,5 +40,11 @@ public class Day {
     public String getDayOfWeek() {
         return dayOfWeek;
     }
-    
+
+    public int getDaysUntilChristmas() {
+        LocalDate date = LocalDate.of(YEAR, MONTH, day);
+        LocalDate christmasDate = LocalDate.of(YEAR, 12, 25);
+        return (int) ChronoUnit.DAYS.between(date, christmasDate);
+    }
+
 }
