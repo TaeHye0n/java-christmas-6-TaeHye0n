@@ -41,4 +41,7 @@ public class DiscountResult {
                 .sum();
     }
 
+    public boolean hasGift() {
+        return discountBenefits.containsKey(GIFT_DISCOUNT.getDiscountPolicy());
+    }
 }
