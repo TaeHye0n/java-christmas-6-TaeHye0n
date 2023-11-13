@@ -4,6 +4,7 @@ import static christmas.domain.discount.Policy.GIFT_DISCOUNT;
 import static christmas.domain.discount.Policy.of;
 
 import christmas.domain.User;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,5 +44,9 @@ public class DiscountResult {
 
     public boolean hasGift() {
         return discountBenefits.containsKey(GIFT_DISCOUNT.getDiscountPolicy());
+    }
+
+    public Map<DiscountPolicy, Integer> getDiscountBenefits() {
+        return Collections.unmodifiableMap(discountBenefits);
     }
 }
