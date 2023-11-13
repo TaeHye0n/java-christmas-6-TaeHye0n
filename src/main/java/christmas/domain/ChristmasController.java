@@ -16,7 +16,8 @@ public class ChristmasController {
 
     public void run() {
         outputView.printGreetingMessage();
-        generateUser();
+        User user = generateUser();
+        outputView.printEventPreviewMessage(user);
     }
 
     private User generateUser() {

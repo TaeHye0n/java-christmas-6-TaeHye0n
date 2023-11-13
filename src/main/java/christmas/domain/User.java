@@ -4,6 +4,7 @@ import static christmas.global.enums.ErrorMessage.ORDER_COUNT_EXCEED_ERROR;
 import static christmas.global.enums.ErrorMessage.ORDER_INVALID_ERROR;
 import static christmas.global.enums.ErrorMessage.ORDER_ONLY_DRINK_ERROR;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -64,7 +65,7 @@ public class User {
     }
 
     public Map<Menu, Integer> getMenuAndCounts() {
-        return menuAndCounts;
+        return Collections.unmodifiableMap(menuAndCounts);
     }
 
     public boolean canTakeGift() {
