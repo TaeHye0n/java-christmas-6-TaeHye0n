@@ -1,9 +1,9 @@
-package christmas.domain;
+package christmas.domain.discount;
 
-import static christmas.domain.Policy.SPECIAL_DISCOUNT;
-import static christmas.domain.Policy.WEEKEND_DISCOUNT;
-import static christmas.domain.Policy.WEEK_DAY_DISCOUNT;
-import static christmas.domain.Policy.of;
+import static christmas.domain.discount.Policy.SPECIAL_DISCOUNT;
+import static christmas.domain.discount.Policy.WEEKEND_DISCOUNT;
+import static christmas.domain.discount.Policy.WEEK_DAY_DISCOUNT;
+import static christmas.domain.discount.Policy.of;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;

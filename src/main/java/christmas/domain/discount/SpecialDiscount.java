@@ -1,4 +1,6 @@
-package christmas.domain;
+package christmas.domain.discount;
+
+import christmas.domain.User;
 
 public class SpecialDiscount implements DiscountPolicy {
 

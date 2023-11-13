@@ -1,4 +1,7 @@
-package christmas.domain;
+package christmas.domain.discount;
+
+import christmas.domain.Menu;
+import christmas.domain.User;
 
 public class WeekDayDiscount implements DiscountPolicy {
 
