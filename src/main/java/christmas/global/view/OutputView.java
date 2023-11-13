@@ -18,7 +18,7 @@ public class OutputView {
     private static final String TOTAL_ORDER_PRICE_MESSAGE = "<할인 전 총주문 금액>";
     private static final String GIFT_MESSAGE = "<증정 메뉴>";
     private static final String BENEFIT_MESSAGE = "<혜택 내역>";
-
+    private static final String TOTAL_BENEFIT_AMOUNT_MESSAGE = "<총혜택 금액>";
     private static final String CHRISTMAS_EVENT_MESSAGE = "크리스마스 디데이 할인: -%,d원\n";
     private static final String WEEK_DAY_EVENT_MESSAGE = "평일 할인: -%,d원\n";
     private static final String WEEKEND_EVENT_MESSAGE = "주말 할인: -%,d원\n";
@@ -35,6 +35,7 @@ public class OutputView {
         printOrderTotalPrice(user);
         printGift(discountResult);
         printBenefits(discountResult);
+        printTotalBenefitAmount(discountResult);
     }
 
     private void printOrderedMenus(User user) {
@@ -79,5 +80,10 @@ public class OutputView {
         if (!hadBenefits) {
             System.out.println(EMPTY_MESSAGE);
         }
+    }
+
+    private void printTotalBenefitAmount(DiscountResult discountResult) {
+        System.out.println(ENTER + TOTAL_BENEFIT_AMOUNT_MESSAGE);
+        System.out.printf("-%,d원\n", discountResult.getTotalBenefits());
     }
 }
