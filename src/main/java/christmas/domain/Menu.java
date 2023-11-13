@@ -36,7 +36,7 @@ public enum Menu {
     }
 
     private boolean isMatch(String menuName) {
-        return this.menuName == menuName;
+        return this.menuName.equals(menuName);
     }
 
     public boolean isDrink() {
