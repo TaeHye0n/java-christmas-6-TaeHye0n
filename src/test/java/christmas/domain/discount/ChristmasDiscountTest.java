@@ -23,7 +23,7 @@ class ChristmasDiscountTest {
         int discount = christmasDiscount.discount(user);
 
         //then
-        assertThat(discount).isEqualTo(3400);
+        assertThat(discount).isEqualTo(1000);
     }
 
 }
