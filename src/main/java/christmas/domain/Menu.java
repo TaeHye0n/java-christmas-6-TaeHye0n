@@ -43,6 +43,19 @@ public enum Menu {
         return this.menuType.equals("음료");
     }
 
+    public boolean isMain() {
+        return this.menuType.equals("메인");
+    }
+
+    public boolean isDessert() {
+        return this.menuType.equals("디저트");
+    }
+
+    public boolean isAppetizer() {
+        return this.menuType.equals("에피타이저");
+    }
+
+
     public int getMenuPrice() {
         return menuPrice;
     }

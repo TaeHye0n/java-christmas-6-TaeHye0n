@@ -67,6 +67,24 @@ class UserTest {
 
         //then
         assertThat(totalPrice).isEqualTo(73_000);
+    }
 
+    @Test
+    void 메뉴_타입별_주문_개수_구하기() {
+        //given
+        Day day = new Day(1);
+        Map<String, Integer> map = new LinkedHashMap<>();
+        map.put("제로콜라", 1);
+        map.put("레드와인", 3);
+        map.put("해산물파스타", 2);
+        User user = new User(day, map);
+
+        //when
+        int drinkCount = user.getCountByMenuType(Menu::isDrink);
+        int mainCount = user.getCountByMenuType(Menu::isMain);
+
+        //then
+        assertThat(drinkCount).isEqualTo(4);
+        assertThat(mainCount).isEqualTo(2);
     }
 }

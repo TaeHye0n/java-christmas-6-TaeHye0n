@@ -7,6 +7,7 @@ import static christmas.global.enums.ErrorMessage.ORDER_ONLY_DRINK_ERROR;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.Function;
 
 public class User {
 
@@ -21,6 +22,13 @@ public class User {
         validateHasNotMenu(this.menuAndCounts);
         validateOrderOnlyDrinks(this.menuAndCounts);
         validateExceedCount(this.menuAndCounts);
+    }
+
+    public int getCountByMenuType(Function<Menu, Boolean> filter) {
+        return menuAndCounts.entrySet().stream()
+                .filter(entry -> filter.apply(entry.getKey()))
+                .mapToInt(Map.Entry::getValue)
+                .sum();
     }
 
     private void validateExceedCount(Map<Menu, Integer> menuAndCounts) {
@@ -54,4 +62,11 @@ public class User {
                 .sum();
     }
 
+    public Map<Menu, Integer> getMenuAndCounts() {
+        return menuAndCounts;
+    }
+
+    public Day getDay() {
+        return day;
+    }
 }
