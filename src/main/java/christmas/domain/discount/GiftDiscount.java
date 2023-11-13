@@ -5,7 +5,7 @@ import christmas.domain.User;
 
 public class GiftDiscount implements DiscountPolicy {
 
-    private static final int GIFT_PRICE = Menu.CHAMPAGNE.getMenuPrice();
+    private static final int GIFT_PRICE = Menu.getGiftMenu().getMenuPrice();
 
     @Override
     public int discount(User user) {
