@@ -20,6 +20,7 @@ public class OutputView {
     private static final String BENEFIT_MESSAGE = "<혜택 내역>";
     private static final String TOTAL_BENEFIT_AMOUNT_MESSAGE = "<총혜택 금액>";
     private static final String AFTER_DISCOUNT_PRICE_MESSAGE = "<할인 후 예상 결제 금액>";
+    private static final String EVENT_BADGE_MESSAGE = "<12월 이벤트 배지>";
     private static final String CHRISTMAS_EVENT_MESSAGE = "크리스마스 디데이 할인: -%,d원\n";
     private static final String WEEK_DAY_EVENT_MESSAGE = "평일 할인: -%,d원\n";
     private static final String WEEKEND_EVENT_MESSAGE = "주말 할인: -%,d원\n";
@@ -38,6 +39,7 @@ public class OutputView {
         printBenefits(discountResult);
         printTotalBenefitAmount(discountResult);
         printAfterDiscountPrice(user, discountResult);
+        printEventBadge(discountResult);
     }
 
     private void printOrderedMenus(User user) {
@@ -92,6 +94,12 @@ public class OutputView {
     private void printAfterDiscountPrice(User user, DiscountResult discountResult) {
         System.out.println(ENTER + AFTER_DISCOUNT_PRICE_MESSAGE);
         System.out.printf("%,d원\n", user.getTotalPrice() - discountResult.getTotalDiscount());
+    }
+
+
+    private void printEventBadge(DiscountResult discountResult) {
+        System.out.println(ENTER + EVENT_BADGE_MESSAGE);
+        System.out.print(discountResult.getEventBadge());
     }
 
 }

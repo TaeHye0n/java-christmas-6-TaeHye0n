@@ -49,4 +49,8 @@ public class DiscountResult {
     public Map<DiscountPolicy, Integer> getDiscountBenefits() {
         return Collections.unmodifiableMap(discountBenefits);
     }
+
+    public String getEventBadge() {
+        return EventBadge.from(getTotalBenefits()).getBadgeName();
+    }
 }
