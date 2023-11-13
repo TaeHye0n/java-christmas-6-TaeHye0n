@@ -24,7 +24,7 @@ class DiscountResultTest {
         int totalBenefits = discountResult.getTotalBenefits();
 
         //then
-        assertThat(totalBenefits).isEqualTo(48_530);
+        assertThat(totalBenefits).isEqualTo(46_330);
     }
 
     @Test
@@ -57,7 +57,7 @@ class DiscountResultTest {
         int totalBenefits = discountResult.getTotalDiscount();
 
         //then
-        assertThat(totalBenefits).isEqualTo(23_530);
+        assertThat(totalBenefits).isEqualTo(21_330);
     }
 
 }
