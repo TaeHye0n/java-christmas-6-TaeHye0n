@@ -10,7 +10,7 @@ public enum Policy {
     WEEKEND_DISCOUNT(new WeekendDiscount(), false, false, false, false),
     SPECIAL_DISCOUNT(new SpecialDiscount(), false, true, false, false),
     CHRISTMAS_DISCOUNT(new ChristmasDiscount(), false, false, true, false),
-    GIFT_DISCOUNT(new GifDiscount(), false, false, false, true);
+    GIFT_DISCOUNT(new GiftDiscount(), false, false, false, true);
 
     private final DiscountPolicy discountPolicy;
     private final boolean isWeekDay;

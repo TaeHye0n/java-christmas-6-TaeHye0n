@@ -11,6 +11,7 @@ import java.util.function.Function;
 
 public class User {
 
+    private static final int GIFT_THRESHOLD = 120_000;
     private static final int MAX_MENU_COUNT = 20;
     private final Day day;
     private final Map<Menu, Integer> menuAndCounts;
@@ -66,7 +67,23 @@ public class User {
         return menuAndCounts;
     }
 
+    public boolean canTakeGift() {
+        return getTotalPrice() >= GIFT_THRESHOLD;
+    }
+
     public Day getDay() {
         return day;
+    }
+
+    public boolean isBeforeChristmas() {
+        return day.isBeforeChristmas();
+    }
+
+    public boolean isWeekDay() {
+        return day.isWeekend();
+    }
+
+    public boolean isSpecialDay() {
+        return day.isSpecialDay();
     }
 }

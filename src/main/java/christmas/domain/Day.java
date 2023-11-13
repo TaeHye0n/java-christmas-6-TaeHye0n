@@ -6,12 +6,14 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Locale;
 
 public class Day {
 
     private static final int YEAR = 2023;
     private static final int MONTH = 12;
+    private static final List<Integer> SPECIAL_DAYS = List.of(3, 10, 17, 24, 25, 31);
     private final int day;
     private final String dayOfWeek;
 
@@ -47,4 +49,18 @@ public class Day {
         return (int) ChronoUnit.DAYS.between(date, christmasDate);
     }
 
+    public boolean isBeforeChristmas() {
+        return day <= 25;
+    }
+
+    public boolean isWeekend() {
+        if ((dayOfWeek.equals("Friday") || dayOfWeek.equals("Saturday"))) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSpecialDay() {
+        return SPECIAL_DAYS.contains(day);
+    }
 }
