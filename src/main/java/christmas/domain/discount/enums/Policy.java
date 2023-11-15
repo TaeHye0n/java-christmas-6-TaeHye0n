@@ -1,5 +1,11 @@
-package christmas.domain.discount;
+package christmas.domain.discount.enums;
 
+import christmas.domain.discount.ChristmasDiscount;
+import christmas.domain.discount.DiscountPolicy;
+import christmas.domain.discount.GiftDiscount;
+import christmas.domain.discount.SpecialDiscount;
+import christmas.domain.discount.WeekDayDiscount;
+import christmas.domain.discount.WeekendDiscount;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

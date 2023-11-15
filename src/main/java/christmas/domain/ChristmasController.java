@@ -1,6 +1,6 @@
 package christmas.domain;
 
-import christmas.domain.discount.DiscountResult;
+import christmas.domain.event.EventResult;
 import christmas.global.utils.ExceptionHandlingUtil;
 import christmas.global.view.InputView;
 import christmas.global.view.OutputView;
@@ -18,7 +18,7 @@ public class ChristmasController {
     public void run() {
         outputView.printGreetingMessage();
         User user = generateUser();
-        outputView.printEventPreviewMessage(user, new DiscountResult(user));
+        outputView.printEventPreviewMessage(user, new EventResult(user));
     }
 
     private User generateUser() {

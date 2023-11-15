@@ -4,11 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.domain.Day;
 import christmas.domain.User;
+import christmas.domain.event.EventResult;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
-class DiscountResultTest {
+class EventResultTest {
 
     @Test
     void 총_혜택_금액_테스트() {
@@ -18,10 +19,10 @@ class DiscountResultTest {
         map.put("티본스테이크", 10);
         map.put("아이스크림", 2);
         User user = new User(day, map);
-        DiscountResult discountResult = new DiscountResult(user);
+        EventResult eventResult = new EventResult(user);
 
         //when
-        int totalBenefits = discountResult.getTotalBenefits();
+        int totalBenefits = eventResult.getTotalBenefits();
 
         //then
         assertThat(totalBenefits).isEqualTo(46_330);
@@ -34,10 +35,10 @@ class DiscountResultTest {
         Map<String, Integer> map = new LinkedHashMap<>();
         map.put("아이스크림", 1);
         User user = new User(day, map);
-        DiscountResult discountResult = new DiscountResult(user);
+        EventResult eventResult = new EventResult(user);
 
         //when
-        int totalBenefits = discountResult.getTotalBenefits();
+        int totalBenefits = eventResult.getTotalBenefits();
 
         //then
         assertThat(totalBenefits).isEqualTo(0);
@@ -51,10 +52,10 @@ class DiscountResultTest {
         map.put("티본스테이크", 10);
         map.put("아이스크림", 2);
         User user = new User(day, map);
-        DiscountResult discountResult = new DiscountResult(user);
+        EventResult eventResult = new EventResult(user);
 
         //when
-        int totalBenefits = discountResult.getTotalDiscount();
+        int totalBenefits = eventResult.getTotalDiscount();
 
         //then
         assertThat(totalBenefits).isEqualTo(21_330);

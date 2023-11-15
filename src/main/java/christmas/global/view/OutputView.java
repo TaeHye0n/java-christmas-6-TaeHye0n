@@ -3,8 +3,8 @@ package christmas.global.view;
 import christmas.domain.Menu;
 import christmas.domain.User;
 import christmas.domain.discount.DiscountPolicy;
-import christmas.domain.discount.DiscountResult;
-import christmas.domain.discount.Policy;
+import christmas.domain.discount.enums.Policy;
+import christmas.domain.event.EventResult;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -31,15 +31,15 @@ public class OutputView {
         System.out.println(GREETING_MESSAGE);
     }
 
-    public void printEventPreviewMessage(User user, DiscountResult discountResult) {
+    public void printEventPreviewMessage(User user, EventResult eventResult) {
         System.out.printf(PREVIEW_MESSAGE, user.getDay().getDay());
         printOrderedMenus(user);
         printOrderTotalPrice(user);
-        printGift(discountResult);
-        printBenefits(discountResult);
-        printTotalBenefitAmount(discountResult);
-        printAfterDiscountPrice(user, discountResult);
-        printEventBadge(discountResult);
+        printGift(eventResult);
+        printBenefits(eventResult);
+        printTotalBenefitAmount(eventResult);
+        printAfterDiscountPrice(user, eventResult);
+        printEventBadge(eventResult);
     }
 
     private void printOrderedMenus(User user) {
@@ -54,18 +54,18 @@ public class OutputView {
         System.out.printf("%,d원\n", user.getTotalPrice());
     }
 
-    private void printGift(DiscountResult discountResult) {
+    private void printGift(EventResult eventResult) {
         System.out.println(ENTER + GIFT_MESSAGE);
-        if (discountResult.hasGift()) {
+        if (eventResult.hasGift()) {
             System.out.printf("%s %d개\n", Menu.getGiftMenu().getMenuName(), 1);
             return;
         }
         System.out.println(EMPTY_MESSAGE);
     }
 
-    private void printBenefits(DiscountResult discountResult) {
+    private void printBenefits(EventResult eventResult) {
         System.out.println(ENTER + BENEFIT_MESSAGE);
-        Map<DiscountPolicy, Integer> discountBenefits = discountResult.getDiscountBenefits();
+        Map<DiscountPolicy, Integer> discountBenefits = eventResult.getDiscountBenefits();
         Map<DiscountPolicy, String> messageForms = new LinkedHashMap<>();
         messageForms.put(Policy.CHRISTMAS_DISCOUNT.getDiscountPolicy(), CHRISTMAS_EVENT_MESSAGE);
         messageForms.put(Policy.WEEK_DAY_DISCOUNT.getDiscountPolicy(), WEEK_DAY_EVENT_MESSAGE);
@@ -86,20 +86,20 @@ public class OutputView {
         }
     }
 
-    private void printTotalBenefitAmount(DiscountResult discountResult) {
+    private void printTotalBenefitAmount(EventResult eventResult) {
         System.out.println(ENTER + TOTAL_BENEFIT_AMOUNT_MESSAGE);
-        System.out.printf("-%,d원\n", discountResult.getTotalBenefits());
+        System.out.printf("-%,d원\n", eventResult.getTotalBenefits());
     }
 
-    private void printAfterDiscountPrice(User user, DiscountResult discountResult) {
+    private void printAfterDiscountPrice(User user, EventResult eventResult) {
         System.out.println(ENTER + AFTER_DISCOUNT_PRICE_MESSAGE);
-        System.out.printf("%,d원\n", user.getTotalPrice() - discountResult.getTotalDiscount());
+        System.out.printf("%,d원\n", user.getTotalPrice() - eventResult.getTotalDiscount());
     }
 
 
-    private void printEventBadge(DiscountResult discountResult) {
+    private void printEventBadge(EventResult eventResult) {
         System.out.println(ENTER + EVENT_BADGE_MESSAGE);
-        System.out.print(discountResult.getEventBadge());
+        System.out.print(eventResult.getEventBadge());
     }
 
 }

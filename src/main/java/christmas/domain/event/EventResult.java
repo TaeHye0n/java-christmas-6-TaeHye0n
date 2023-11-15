@@ -1,26 +1,27 @@
-package christmas.domain.discount;
+package christmas.domain.event;
 
-import static christmas.domain.discount.Policy.GIFT_DISCOUNT;
-import static christmas.domain.discount.Policy.of;
+import static christmas.domain.discount.enums.Policy.GIFT_DISCOUNT;
+import static christmas.domain.discount.enums.Policy.of;
 
 import christmas.domain.User;
+import christmas.domain.discount.DiscountPolicy;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DiscountResult {
+public class EventResult {
 
     private static final int DISCOUNT_THRESHOLD = 10_000;
     private final Map<DiscountPolicy, Integer> discountBenefits;
 
-    public DiscountResult(User user) {
+    public EventResult(User user) {
         this.discountBenefits = new LinkedHashMap<>();
-        discountEvent(user);
+        event(user);
     }
 
 
-    private void discountEvent(User user) {
+    private void event(User user) {
         if (user.getTotalPrice() < DISCOUNT_THRESHOLD) {
             return;
         }
